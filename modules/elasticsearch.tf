@@ -8,9 +8,7 @@ variable "domain" {
 
 # *********** data sources ***********
 data "aws_vpc" "vpc-data" {
-  tags {
-      Name = "${var.vpc}"
-  }
+  id = "${var.vpc}"
 }
 
 data "aws_subnet_ids" "subnet-data" {
@@ -46,10 +44,11 @@ resource "aws_elasticsearch_domain" "cowork-elasticsearch" {
   elasticsearch_version = "7.4"
   
   cluster_config {
-      instance_type = "r5.large.elasticsearch"
-      # instance_type = "t2.small.elasticsearch"
+      #instance_type = "r5.large.elasticsearch"
+      instance_type = "t2.small.elasticsearch"
       dedicated_master_enabled = "true"
-      dedicated_master_type = "r5.large.elasticsearch"
+      # dedicated_master_type = "r5.large.elasticsearch"
+      dedicated_master_type = "t2.small.elasticsearch"
       dedicated_master_count = "3"
       zone_awareness_enabled = "true"
 
