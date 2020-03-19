@@ -1,5 +1,6 @@
+
 module "elasticsearch_cluster" {
-  source = "./modules/elasticsearch.tf"
-  
+  source = "./es-module"
   vpc = "${var.vpc}"
+  environment = "${var.environment}"
 }

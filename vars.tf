@@ -11,8 +11,6 @@ variable "environment" {
   default = "dev"
 }
 
-variable "vpc" {
-  default = "vpc-71b0c618"
-}
+variable "vpc" {}
 
 
